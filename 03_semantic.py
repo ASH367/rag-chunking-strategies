@@ -25,3 +25,7 @@ for i, chunk in enumerate(chunks):
 # Semantic chunking uses embedding models to measure similarity between sentences
 # Splits when similarity drops below a percentile threshold — meaning shifts, not character counts
 # Fewer, more meaningful chunks but slower — runs embeddings at index time
+
+# Cost: expensive at scale — runs embedding model on every sentence at index time
+# For 10,000 legal PDFs this means millions of embedding calls
+# Fixed/Recursive = near zero cost, Semantic = significant compute cost
