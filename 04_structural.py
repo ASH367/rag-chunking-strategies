@@ -27,13 +27,8 @@ def split_resume(docs, sections):
     return section_dict
 
 parsed_resume = split_resume(docs, sections)
-# print(parsed_resume["EXPERIENCE"])
 
-
-print(parsed_resume)
-idx = full_text.find("EXPERIENCE")
-print(full_text[idx-50:idx+50])
-# Structural chunking uses PDF structure to group content
-# Splits on page breaks and section headers
-# Better context awareness but still not perfect
-# Can miss subtle distinctions in meaning or structure
+# Structural chunking splits on known document headers using regex
+# Most precise for well-structured docs — each section is a complete meaningful unit
+# Weakness: brittle — breaks if headers change or PDF formatting shifts
+# Best for: resumes, legal contracts, standardized forms
